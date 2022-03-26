@@ -49,7 +49,7 @@ function generatePassword() {
     var specialCharactersRequest = window.confirm("Do you want special characters in your password?");
 
     // If all requests are cancelled, an alert to pop up to say at least one needs to be selected
-    if (!uppercaseRequest === !lowercaseRequest === !numberRequest === !specialCharactersRequest) {
+    if (!uppercaseRequest && !lowercaseRequest && !numberRequest && !specialCharactersRequest) {
         window.alert("You must select at least one of the password requirements to generate a password");
         generatePassword();
     
@@ -82,6 +82,15 @@ function generatePassword() {
         var result = ' ';
         for (var i = 0; i < passwordLength; i++) {
             result += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+        }
+        return result;
+
+    // If uppers and lowers are selected, but nums and special characters aren't, generate random password with only uppers and lowers
+    } else if (uppercaseRequest && lowercaseRequest && !numberRequest && !specialCharactersRequest) {
+        var uppersLowers = uppers + lowers;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += uppersLowers.charAt(Math.floor(Math.random() * uppersLowers.length));
         }
         return result;
     }
