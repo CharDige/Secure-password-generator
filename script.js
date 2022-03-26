@@ -20,12 +20,11 @@ var specialChars = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~";
 // generatePassword function
 function generatePassword() {
     // Ask for number of characters
-    var numChars = window.prompt("Enter number of characters for password length", "Type number of characters");
+    var numChars = window.prompt("Enter number of characters for password length", "Type in number of characters");
     numChars = parseInt(numChars);
 
     if (isNaN(numChars)) {
         window.alert("Must provide a number for password length");
-        generatePassword();
     }
 
     // If user presses cancel when prompted for password length, immediately end function
