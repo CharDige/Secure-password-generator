@@ -10,5 +10,15 @@ function writePassword() {
 
 }
 
+var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowers = "abcdefghijklmnopqrstuvwxyz";
+var nums = "0123456789";
+var specialChars = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~"
+
+
+function generatePassword() {
+
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
