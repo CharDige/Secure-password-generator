@@ -138,6 +138,15 @@ function generatePassword() {
             result += numsSpecial.charAt(Math.floor(Math.random() * numsSpecial.length));
         }
         return result;
+
+    // If uppers, lowers and nums are selected, but specialChars aren't, generate random password with only uppers, lowers and nums
+    } else if (uppercaseRequest && lowercaseRequest && numberRequest && !specialCharactersRequest) {
+        var uppersLowersNums = uppers + lowers + nums;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += uppersLowersNums.charAt(Math.floor(Math.random() * uppersLowersNums.length));
+        }
+        return result;
     }
 }
 
