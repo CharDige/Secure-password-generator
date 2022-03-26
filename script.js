@@ -60,6 +60,30 @@ function generatePassword() {
             result += uppers.charAt(Math.floor(Math.random() * uppers.length));
         }
         return result;
+    
+    // If lowers are selected but no others are, generate a random password at the selected length with only lowercase characters
+    } else if (!uppercaseRequest && lowercaseRequest && !numberRequest && !specialCharactersRequest) {
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += lowers.charAt(Math.floor(Math.random() * lowers.length));
+        }
+        return result;
+    
+    // If numbers are selected but no others are, generate random password at the selected length with only numbers
+    } else if (!uppercaseRequest && !lowercaseRequest && numberRequest && !specialCharactersRequest) {
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += nums.charAt(Math.floor(Math.random() * nums.length));
+        }
+        return result;
+
+    // If special characters are selected but no others are, generate random password at the selected length with only special characters
+    } else if (!uppercaseRequest && !lowercaseRequest && !numberRequest && specialCharactersRequest) {
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+        }
+        return result;
     }
 }
 
