@@ -174,6 +174,15 @@ function generatePassword() {
             result += lowersNumsSpecial.charAt(Math.floor(Math.random() * lowersNumsSpecial.length));
         }
         return result;
+
+    // If all selections are made, a random password is generated using all types of characters
+    } else (uppercaseRequest && lowercaseRequest && numberRequest && specialCharactersRequest); {
+        var allChars = uppers + lowers + nums + specialChars;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += allChars.charAt(Math.floor(Math.random() * allChars.length));
+        }
+        return result;
     }
 }
 
