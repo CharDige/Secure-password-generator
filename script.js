@@ -23,6 +23,7 @@ function generatePassword() {
     var numChars = window.prompt("Enter number of characters for password length", "Type in number of characters");
     numChars = parseInt(numChars);
 
+    // Restricting input field to only numbers
     if (isNaN(numChars)) {
         window.alert("Must provide a number for password length");
     }
