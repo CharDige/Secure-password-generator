@@ -93,6 +93,51 @@ function generatePassword() {
             result += uppersLowers.charAt(Math.floor(Math.random() * uppersLowers.length));
         }
         return result;
+
+    // If uppers and nums are selected, but others aren't, generate random password with only uppers and nums
+    } else if (uppercaseRequest && !lowercaseRequest && numberRequest && !specialCharactersRequest) {
+        var uppersNums = uppers + nums;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += uppersNums.charAt(Math.floor(Math.random() * uppersNums.length));
+        }
+        return result;
+
+    // If uppers and specialChars are selected, but others aren't, generate random password with only uppers and specialChars
+    } else if (uppercaseRequest && !lowercaseRequest && !numberRequest && specialCharactersRequest) {
+        var uppersSpecial = uppers + specialChars;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += uppersSpecial.charAt(Math.floor(Math.random() * uppersSpecial.length));
+        }
+        return result;
+
+    // If lowers and nums are selected, but others aren't, generate random password with only lowers and nums
+    } else if (!uppercaseRequest && lowercaseRequest && numberRequest && !specialCharactersRequest) {
+        var lowersNums = lowers + nums;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += lowersNums.charAt(Math.floor(Math.random() * lowersNums.length));
+        }
+        return result;
+
+    // If lowers and specialChars are selected, but others aren't, generate random password with only lowers and specialChars
+    } else if (!uppercaseRequest && lowercaseRequest && !numberRequest && specialCharactersRequest) {
+        var lowersSpecial = lowers + specialChars;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += lowersSpecial.charAt(Math.floor(Math.random() * lowersSpecial.length));
+        }
+        return result;
+
+    // If nums and specialChars are selected, but others aren't, generate random password with only nums and specialChars
+    } else if (!uppercaseRequest && !lowercaseRequest && numberRequest && specialCharactersRequest) {
+        var numsSpecial = nums + specialChars;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += numsSpecial.charAt(Math.floor(Math.random() * numsSpecial.length));
+        }
+        return result;
     }
 }
 
