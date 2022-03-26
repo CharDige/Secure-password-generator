@@ -14,12 +14,17 @@ function writePassword() {
 var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowers = "abcdefghijklmnopqrstuvwxyz";
 var nums = "0123456789";
-var specialChars = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~"
+var specialChars = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~";
 
 // generatePassword function
 function generatePassword() {
     // Ask for number of characters
     var numChars = window.prompt("Enter number of characters for password length");
+
+    // If user presses cancel when prompted for password length, immediately end function
+    if (!numChars) {
+        return;
+    }
 
     // If user a user selects a number below 8, an alert pops up that password length must be longer
     if (numChars < 8) {
@@ -36,7 +41,17 @@ function generatePassword() {
         var passwordLength = numChars;
     }
 
-    
+    // Ask if user wants uppercase, lowercase, numbers and special characters in their password
+    var uppercaseRequest = window.confirm("Do you want uppercase characters in your password?");
+    var lowercaseRequest = window.confirm("Do you want lowercase characters in your password?");
+    var numberRequest = window.confirm("Do you want numbers in your password?");
+    var specialCharactersRequest = window.confirm("Do you want special characters in your password?");
+
+    // If all requests are cancelled, an alert to pop up to say at least one needs to be selected
+    if (!uppercaseRequest === !lowercaseRequest === !numberRequest === !specialCharactersRequest) {
+        window.alert("You must select at least one of the password requirements to generate a password");
+        generatePassword();
+    } 
 }
 
 // Add event listener to generate button
