@@ -16,6 +16,7 @@ var lowers = "abcdefghijklmnopqrstuvwxyz";
 var nums = "0123456789";
 var specialChars = "!#$%&'()*+,-./:;<=>?@[]^_`{}|~";
 
+
 // generatePassword function
 function generatePassword() {
     // Ask for number of characters
@@ -51,7 +52,15 @@ function generatePassword() {
     if (!uppercaseRequest === !lowercaseRequest === !numberRequest === !specialCharactersRequest) {
         window.alert("You must select at least one of the password requirements to generate a password");
         generatePassword();
-    } 
+    
+    // If uppers are selected but no others are, generate a random password at the selected length with only uppercase characters
+    } else if (uppercaseRequest && !lowercaseRequest && !numberRequest && !specialCharactersRequest) {
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += uppers.charAt(Math.floor(Math.random() * uppers.length));
+        }
+        return result;
+    }
 }
 
 // Add event listener to generate button
