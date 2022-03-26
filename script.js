@@ -147,6 +147,33 @@ function generatePassword() {
             result += uppersLowersNums.charAt(Math.floor(Math.random() * uppersLowersNums.length));
         }
         return result;
+
+    // If uppers, lowers and specialChars are selected, but nums aren't, generate random password with only uppers, lowers and specialChars
+    } else if (uppercaseRequest && lowercaseRequest && !numberRequest && specialCharactersRequest) {
+        var uppersLowersSpecial = uppers + lowers + specialChars;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += uppersLowersSpecial.charAt(Math.floor(Math.random() * uppersLowersSpecial.length));
+        }
+        return result;
+
+    // If uppers, nums and specialChars are selected, but lowers aren't, generate random password with only uppers, nums and specialChars
+    } else if (uppercaseRequest && !lowercaseRequest && numberRequest && specialCharactersRequest) {
+        var uppersNumsSpecial = uppers + nums + specialChars;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += uppersNumsSpecial.charAt(Math.floor(Math.random() * uppersNumsSpecial.length));
+        }
+        return result;
+
+    // If lowers, nums and specialChars are selected, but uppers aren't, generate random password with only lowers, nums and specialChars
+    } else if (!uppercaseRequest && lowercaseRequest && numberRequest && specialCharactersRequest) {
+        var lowersNumsSpecial = lowers + nums + specialChars;
+        var result = ' ';
+        for (var i = 0; i < passwordLength; i++) {
+            result += lowersNumsSpecial.charAt(Math.floor(Math.random() * lowersNumsSpecial.length));
+        }
+        return result;
     }
 }
 
